@@ -4688,3 +4688,16 @@ input, select, textarea {
 		}
 
 	}
+
+	/* Custom Nostr Icon */
+	.icon.brands.fa-nostr img {
+		width: 1.30em;
+		height: 1.30em;
+		display: inline-block;
+		vertical-align: -0.175em;
+		transition: filter 0.3s ease;
+	}
+
+	.icon.brands.fa-nostr:hover img {
+		filter: brightness(0) saturate(100%) invert(72%) sepia(69%) saturate(1462%) hue-rotate(174deg) brightness(101%) contrast(95%);
+	}
