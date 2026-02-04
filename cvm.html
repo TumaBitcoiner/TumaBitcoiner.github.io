@@ -6,15 +6,41 @@
 -->
 <html>
 	<head>
-		<title>My Portfolio</title>
+		<title>The ContextVM World</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
 		<style>
-			.posts .image.fit img {
-				height: 300px;
-				object-fit: cover;
+			.lwi-cvm {
+				margin: 1rem 0;
+			}
+
+			.lwi-cvm summary {
+				cursor: pointer;
+				font-weight: 600;
+				list-style: none;
+			}
+
+			.lwi-cvm summary::-webkit-details-marker {
+				display: none;
+			}
+
+			.lwi-cvm summary::before {
+				content: ' ▾';
+				font-size: 0.9em;
+				transition: transform 0.2s ease;
+				display: inline-block;
+			}
+
+			.lwi-cvm[open] summary::before {
+				transform: rotate(180deg);
+			}
+
+			.lwi-cvm ul {
+				margin: 0.5rem 0 0;
+				padding-left: 1.25rem;
 			}
 		</style>
 	</head>
@@ -25,15 +51,13 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="#contributions" class="logo scrolly">My Writings</a>
+						<a href="#latest" class="logo scrolly">Latest</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">About Me</a></li>
-							<li class="active"><a href="portfolio.html">Portfolio</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
+							<li><a href="portfolio.html">Back</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://twitter.com/TumaBitcoiner" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -45,20 +69,38 @@
 				<!-- Main -->
 					<div id="main">
 
-						<section>
+						<section class="post">
 							<header class="major">
-								<!--<span class="date">April 25, 2017</span>-->
-								<h1>What I Write</h1>
-								<p>Find out what I write about Bitcoin and open-source development.</p>
-							</header>							
-							<p>
-								I contribute to some of the most important technical newsletters in
-								the Bitcoin ecosystem as an open-source writer. </br>
-								My work focuses on
-								breaking down complex technical topics into digestible articles for
-								Bitcoin developers and enthusiasts.
-							</p>
-						</section>
+								<!-- <span class="date">April 25, 2017</span> -->
+								<h1>The ContextVM World</h1>
+								<img src="images/contrib/cvm.jpg" alt="CVM log" style="width:200px;"/>
+								<p>
+									A biweekly appointment to discover everything you need to know about ContextVM, MCP,
+									Nostr, and all in between! </br>
+									In our updates we will bring you the latest information about CVM and its ecosystem,
+									with a particular focus on projects, services, and companies leveraging it for
+									their infrastructure.</br>
+									We will also present a curated list of articles, blog posts, and notes talking
+									about CVM and how it is changing the way we interact with MCP servers.</br>
+									Finally, we will bring the latest news from the MCP ecosystem, including
+									specification changes and new protocol additions. CVM is built on MCP, which means
+									that we care about providing you up-to-date information from its thriving ecosystem.
+								</p>
+							</header>
+							<h3>Contributions</h3>
+							<details class=".lwi-cvm">
+								<summary><strong>The ContextVM World</strong></summary>
+								<ul>
+									<ul>
+										<li id="latest"><a href="https://primal.net/e/naddr1qvzqqqr4gupzq6ehsrhjjuh885mshp9ru50842dwxjl5z2fcmnaan30k8v3pg9kgqq2hg6r9943k7mn5v4u8gand94mk7unvvsknz85xeja" target="_blank">
+											The ContextVM World 🌍 — #1</a></li>
+									</ul>
+								</ul>
+							</details>
+						</section>						
+						<ul class="actions">
+							<li><a href="#nav" class="button icon solid solo fa-arrow-up scrolly">Back to Top</a></li>
+						</ul>
 
 						<!-- <section id = "Merchants" class="main">
 							<header class="major" align="center">
@@ -71,100 +113,7 @@
 							</header>
 						</section> -->
 
-						<section class="posts" id="contributions">							
-							<article>
-								<header>
-									<h2>
-										Bitcoin Optech
-									</h2>											
-								</header>
-								<a href="optech.html" class="image fit"><img src="images/contrib/optech.png" alt="" /></a>
-								<p>
-									The <strong>Operations Technology Group (Optech)</strong> works to 
-									bring the best open source technologies and techniques to Bitcoin-using
-									businesses in order to lower costs and improve customer experiences.
-									</br> 
-									</br> 
-									</br> 
-								</p>
-								<ul class="actions special">
-									<li><a href="https://bitcoinops.org/" target="_blank" class="button">Website</a></li>
-									<li><a href="optech.html" class="button">My Work</a></li>
-								</ul>
-							</article>
-							<article>
-								<header>
-									<h2>
-									BTC++ Insider Edition
-									</h2>
-								</header>
-								<a href="insider.html" class="image fit"><img src="images/contrib/insider.png" alt="" /></a>
-								<p>
-									Built on the back of the ecosystem’s most successful technical conference series,
-									the <strong>Insider Edition</strong> covers the latest news, breakdowns, and coverage for all
-									things technically Bitcoin. </br> 
-									While bitcoin++ travels the world, the Insider Edition brings the frontier
-									of Bitcoin directly to your inbox.
-								</p>
-								<ul class="actions special">
-									<li><a href="https://insider.btcpp.dev/" target="_blank" class="button">Website</a></li>
-									<li><a href="insider.html" class="button">My Work</a></li>
-								</ul>
-							</article>	
-							<article>
-								<header>
-									<h2>
-									Inside Bitcoin Code
-									</h2>
-								</header>
-								<a href="ibc.html" class="image fit"><img src="images/contrib/ibc.png" alt="" /></a>
-								<p>
-									The value of open-source vanishes without active code verification from the
-									community. Yet, most Bitcoiners lack any real coding expertise. </br>
-									I'm focused on delivering that foundational education to bridge the gap!
-									The goal of <strong>Inside Bitcoin Code</strong> is for you to reach the point of reading and grasping
-									code entirely on your own!!
-								</p>
-								<ul class="actions special">
-									<li><a href="https://insidebitcoincode.substack.com/" target="_blank" class="button">Website</a></li>
-									<li><a href="ibc.html" target="_blank" class="button">My Work</a></li>
-								</ul>
-							</article>	
-							<article>
-								<header>
-									<h2>
-									The ContextVM World
-									</h2>
-								</header>
-								<a href="cvm.html" class="image fit"><img src="images/contrib/cvm.jpg" alt="" /></a>
-								<p>
-									A protocol built on MCP that enables servers and clients
-									to communicate over the Nostr network — an open communication network
-									built on cryptographic, censorship-resistant, and permissionless foundations.
-									No domains, no OAuth, no port forwarding—just keys, relays, and fun.
-									</br> 
-									</br> 
-								</p>
-								<ul class="actions special">
-									<li><a href="https://contextvm.org/" target="_blank" class="button">Website</a></li>
-									<li><a href="cvm.html" target="_blank" class="button">My Work</a></li>
-								</ul>
-							</article>	
-							<article>
-								<header>
-									<h2>
-									More to come...
-									</h2>
-								</header>
-								<a href="#" class="image fit"><img src="images/logo-smile.png" alt="" /></a>
-								<p>
-									You can be the next! Contact me for inquiries and collaborations!
-								</p>
-								<ul class="actions special">
-									<li><a href="contacts.html" class="button">Contact Me</a></li>
-								</ul>
-							</article>
-						</section>
+						
 
 
 						<!---<section class="posts">
