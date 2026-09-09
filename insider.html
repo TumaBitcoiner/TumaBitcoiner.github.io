@@ -43,6 +43,77 @@
 				margin: 0.5rem 0 0;
 				padding-left: 1.25rem;
 			}
+
+		/* Latest preview cards */
+		.latest-previews {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.25rem;
+			margin: 2rem 0 2.5rem;
+		}
+
+		.preview-card {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid rgba(255,255,255,0.08);
+			border-radius: 6px;
+			overflow: hidden;
+			text-decoration: none;
+			transition: transform 0.2s ease, border-color 0.2s ease;
+			background: rgba(255,255,255,0.02);
+		}
+
+		.preview-card:hover {
+			transform: translateY(-3px);
+			border-color: rgba(255,255,255,0.2);
+		}
+
+		.preview-img {
+			position: relative;
+			padding-top: 56.25%;
+			overflow: hidden;
+			background: rgba(255,255,255,0.03);
+		}
+
+		.preview-img img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.preview-body {
+			padding: 0.85rem;
+		}
+
+		.preview-label {
+			font-size: 0.65rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: #18bfef;
+			margin-bottom: 0.35rem;
+		}
+
+		.preview-title {
+			font-size: 0.85rem;
+			font-weight: 600;
+			line-height: 1.35;
+			color: inherit;
+		}
+
+		@media screen and (max-width: 980px) {
+			.latest-previews {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media screen and (max-width: 480px) {
+			.latest-previews {
+				grid-template-columns: 1fr;
+			}
+		}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -81,7 +152,52 @@
 									things technically Bitcoin. 
 								</p>
 							</header>
-							<h3>Contributions</h3>
+						<!-- ===== Latest Articles Preview Cards ===== -->
+						<div class="latest-previews">
+						
+						<a href="https://insider.btcpp.dev/p/bitcoin-shrimps-how-blockstreams" target="_blank" class="preview-card">
+							<div class="preview-img">
+								<img src="https://substackcdn.com/image/fetch/$s_!FKfu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f775105-74da-4b62-a64a-494ce26bc075_1376x768.jpeg" alt="Bitcoin SHRIMPS" loading="lazy">
+							</div>
+							<div class="preview-body">
+								<div class="preview-label">Technical Takes</div>
+								<div class="preview-title">Bitcoin SHRIMPS &mdash; How Blockstream&rsquo;s Latest Quantum Proposal Looks to Minimize Risks</div>
+							</div>
+						</a>
+						
+						<a href="https://insider.btcpp.dev/p/egge-wants-you-to-pay-with-bitcoin" target="_blank" class="preview-card">
+							<div class="preview-img">
+								<img src="https://substackcdn.com/image/fetch/$s_!jVPa!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4999932b-d8b4-4b5f-b8f1-21a810520f25_1264x848.png" alt="Egge Interview" loading="lazy">
+							</div>
+							<div class="preview-body">
+								<div class="preview-label">Insider Interviews</div>
+								<div class="preview-title">Egge Wants You to Pay with Bitcoin</div>
+							</div>
+						</a>
+						
+						<a href="https://insider.btcpp.dev/p/bitpolito-how-italys-largest-bitcoin" target="_blank" class="preview-card">
+							<div class="preview-img">
+								<img src="https://substackcdn.com/image/fetch/$s_!Csgb!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F85269bea-aada-4c4f-9668-c00bd583a71c_1264x848.png" alt="BitPolito" loading="lazy">
+							</div>
+							<div class="preview-body">
+								<div class="preview-label">Other News Items</div>
+								<div class="preview-title">BitPolito: How Italy&rsquo;s Largest Bitcoin Student Org Is Passing the Reins to the Next Generation</div>
+							</div>
+						</a>
+						
+						<a href="https://insider.btcpp.dev/p/liquid-hacked-last-week-in-bitcoin" target="_blank" class="preview-card">
+							<div class="preview-img">
+								<img src="https://substackcdn.com/image/fetch/$s_!cfBM!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fba614c75-a494-40d7-a82f-86615ef1f34d_1600x900.jpeg" alt="Liquid Hacked" loading="lazy">
+							</div>
+							<div class="preview-body">
+								<div class="preview-label">Last Week In Bitcoin</div>
+								<div class="preview-title">Liquid Hacked &mdash; Last Week in Bitcoin (Aug 31 &mdash; Sep 06)</div>
+							</div>
+						</a>
+						
+						</div>
+
+							<h3>All Contributions</h3>
 							<details class="lwi-bitcoin">
 								<summary>Technical Takes</summary>
 								<ul>
