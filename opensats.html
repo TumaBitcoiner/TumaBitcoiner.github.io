@@ -43,6 +43,106 @@
 				margin: 0.5rem 0 0;
 				padding-left: 1.25rem;
 			}
+
+		/* Preview cards */
+		.latest-previews {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.25rem;
+			margin: 2rem 0 2.5rem;
+		}
+
+		.preview-card {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid rgba(255,255,255,0.08);
+			border-radius: 6px;
+			overflow: hidden;
+			text-decoration: none;
+			transition: transform 0.2s ease, border-color 0.2s ease;
+			background: rgba(255,255,255,0.02);
+		}
+
+		.preview-card:hover {
+			transform: translateY(-3px);
+			border-color: rgba(255,255,255,0.2);
+		}
+
+		.preview-card-placeholder {
+			cursor: default;
+		}
+
+		.preview-card-placeholder:hover {
+			transform: none;
+			border-color: rgba(255,255,255,0.08);
+		}
+
+		.preview-img {
+			position: relative;
+			padding-top: 56.25%;
+			overflow: hidden;
+			background: rgba(255,255,255,0.03);
+		}
+
+		.preview-img img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.preview-img-placeholder {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: rgba(255,255,255,0.15);
+			font-size: 1.5rem;
+		}
+
+		.preview-body {
+			padding: 0.85rem;
+		}
+
+		.preview-label {
+			font-size: 0.65rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: #18bfef;
+			margin-bottom: 0.35rem;
+		}
+
+		.preview-title {
+			font-size: 0.85rem;
+			font-weight: 600;
+			line-height: 1.35;
+			color: inherit;
+		}
+
+		.preview-title-placeholder {
+			font-size: 0.85rem;
+			line-height: 1.35;
+			color: rgba(255,255,255,0.25);
+			font-style: italic;
+		}
+
+		@media screen and (max-width: 980px) {
+			.latest-previews {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media screen and (max-width: 480px) {
+			.latest-previews {
+				grid-template-columns: 1fr;
+			}
+		}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -81,6 +181,51 @@
 									Check my <a href="https://opensats.org/about/tuma" target="_blank">about page</a>.
 								</p>
 							</header>
+						<!-- ===== Writing Preview Cards ===== -->
+							<div class="latest-previews">
+
+								<a href="https://opensats.org/blog/developer-spotlight-egge-coco" target="_blank" class="preview-card">
+									<div class="preview-img">
+										<img src="https://opensats.org/static/images/spotlight/egge/featured.jpg" alt="Egge Bitcoin Journey" loading="lazy">
+									</div>
+									<div class="preview-body">
+										<div class="preview-label">Writing</div>
+										<div class="preview-title">Egge&rsquo;s Bitcoin Journey: From Marketer to Cashu Maintainer</div>
+									</div>
+								</a>
+
+								<div class="preview-card preview-card-placeholder">
+									<div class="preview-img">
+										<div class="preview-img-placeholder">+</div>
+									</div>
+									<div class="preview-body">
+										<div class="preview-label">Writing</div>
+										<div class="preview-title-placeholder">New article on the way</div>
+									</div>
+								</div>
+
+								<div class="preview-card preview-card-placeholder">
+									<div class="preview-img">
+										<div class="preview-img-placeholder">+</div>
+									</div>
+									<div class="preview-body">
+										<div class="preview-label">Writing</div>
+										<div class="preview-title-placeholder">New article on the way</div>
+									</div>
+								</div>
+
+								<div class="preview-card preview-card-placeholder">
+									<div class="preview-img">
+										<div class="preview-img-placeholder">+</div>
+									</div>
+									<div class="preview-body">
+										<div class="preview-label">Writing</div>
+										<div class="preview-title-placeholder">New article on the way</div>
+									</div>
+								</div>
+
+							</div>
+
 							<h3>Contributions</h3>
 							<details class=".lwi-opsa">
 								<summary><strong>OpenSats Writing Contributions</strong></summary>
