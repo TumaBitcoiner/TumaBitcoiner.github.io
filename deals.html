@@ -99,11 +99,15 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 			}
-			/* Align buttons to bottom */
+			/* Card layout: flex column */
 			#main > .posts > article {
 				display: flex;
 				flex-direction: column;
 			}
+			#main > .posts > article .card-top {
+				flex: 1 0 auto;
+			}
+			/* Align buttons to bottom */
 			#main > .posts > article .actions {
 				margin-top: auto;
 			}
@@ -155,35 +159,15 @@
 						<!-- Product Cards -->
 						<section class="posts">
 
-							<!--
-							Template — copy this block for each new product:
-							<article>
-								<header>
-									<h2>Product Name</h2>
-								</header>
-								<a href="PRODUCT_URL?ref=tuma" target="_blank" class="image fit">
-									<img src="images/deals/product-name.png" alt="Product Name" />
-								</a>
-								<p>Why I use it — one or two sentences about the product.</p>
-								<p>
-									<strong>Code: YOURCODE</strong><br />
-									<em>You get X% off</em>
-								</p>
-								<ul class="actions special">
-									<li><a href="PRODUCT_URL?ref=tuma" target="_blank" class="button">
-										Get it with discount
-									</a></li>
-								</ul>
-							</article>
-							-->
-
 							<!-- Product 1 — nadanada -->
 							<article>
-								<header>
-									<h2>nadanada</h2>
-								</header>
-								<a href="https://nadanada.me?ref=TUMA" target="_blank" class="image fit"><img src="https://nadanada.me/icon.svg" alt="nadanada" /></a>
-								<p>Privacy-first VPN, eSIM, and disposable phone numbers. No account, no email, no KYC — pay with Bitcoin, Lightning, or Monero. Trusted in 200+ countries, plans start at $0.50.</p>
+								<div class="card-top">
+									<header>
+										<h2>nadanada</h2>
+									</header>
+									<a href="https://nadanada.me?ref=TUMA" target="_blank" class="image fit"><img src="https://nadanada.me/icon.svg" alt="nadanada" /></a>
+									<p>Privacy-first VPN, eSIM, and disposable phone numbers. No account, no email, no KYC — pay with Bitcoin, Lightning, or Monero. Trusted in 200+ countries, plans start at $0.50.</p>
+								</div>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">TUMA</span>
@@ -198,11 +182,13 @@
 
 							<!-- Product 2 — Freedomia -->
 							<article>
-								<header>
-									<h2>Freedomia</h2>
-								</header>
-								<a href="https://www.freedomia.io/a/tuma" target="_blank" class="image fit"><img src="https://www.freedomia.io/icons/icon-512x512.png" alt="Freedomia" /></a>
-								<p>No-KYC virtual Visa card funded with Bitcoin and Lightning. Top up via your personal Lightning Address and spend anywhere Visa is accepted, instantly. No account, no approval — just your keys, your card, your money.</p>
+								<div class="card-top">
+									<header>
+										<h2>Freedomia</h2>
+									</header>
+									<a href="https://www.freedomia.io/a/tuma" target="_blank" class="image fit"><img src="https://www.freedomia.io/icons/icon-512x512.png" alt="Freedomia" /></a>
+									<p>No-KYC virtual Visa card funded with Bitcoin and Lightning. Top up via your personal Lightning Address and spend anywhere Visa is accepted, instantly. No account, no approval — just your keys, your card, your money.</p>
+								</div>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">TUMA</span>
@@ -218,11 +204,13 @@
 
 							<!-- Product 3 — PayPerQ -->
 							<article>
-								<header>
-									<h2>PayPerQ</h2>
-								</header>
-								<a href="https://ppq.ai/invite/7e47dbed" target="_blank" class="image fit"><img src="https://ppq.ai/meta/apple-touch-icon.png" alt="PayPerQ" /></a>
-								<p>Pay-per-prompt access to hundreds of AI models — chat, image, video, and voice. No registration, no subscriptions. OpenAI-compatible API for agents and coding assistants. Pay anonymously with crypto, average ~2¢ per query.</p>
+								<div class="card-top">
+									<header>
+										<h2>PayPerQ</h2>
+									</header>
+									<a href="https://ppq.ai/invite/7e47dbed" target="_blank" class="image fit"><img src="https://ppq.ai/meta/apple-touch-icon.png" alt="PayPerQ" /></a>
+									<p>Pay-per-prompt access to hundreds of AI models — chat, image, video, and voice. No registration, no subscriptions. OpenAI-compatible API for agents and coding assistants. Pay anonymously with crypto, average ~2¢ per query.</p>
+								</div>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">7e47dbed</span>
@@ -238,11 +226,13 @@
 
 							<!-- Product 4 — bitCashback -->
 							<article>
-								<header>
-									<h2>bitCashback</h2>
-								</header>
-								<a href="https://bitcashback.net/?r=13669" target="_blank" class="image fit"><img src="https://bitcashback.net/favicon/apple-touch-icon.png" alt="bitCashback" /></a>
-								<p>Earn Bitcoin cashback on your everyday online shopping. Browse thousands of stores, get a percentage back on every purchase, and receive your rewards directly in Bitcoin — no points, no nonsense.</p>
+								<div class="card-top">
+									<header>
+										<h2>bitCashback</h2>
+									</header>
+									<a href="https://bitcashback.net/?r=13669" target="_blank" class="image fit"><img src="https://bitcashback.net/favicon/apple-touch-icon.png" alt="bitCashback" /></a>
+									<p>Earn Bitcoin cashback on your everyday online shopping. Browse thousands of stores, get a percentage back on every purchase, and receive your rewards directly in Bitcoin — no points, no nonsense.</p>
+								</div>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">13669</span>
@@ -257,11 +247,13 @@
 
 							<!-- Product 5 — Bitrefill -->
 							<article>
-								<header>
-									<h2>Bitrefill</h2>
-								</header>
-								<a href="https://bitrefill.com/invite/vtsbeb6e" target="_blank" class="image fit"><img src="https://www.bitrefill.com/apple-touch-icon.png" alt="Bitrefill" /></a>
-								<p>Buy gift cards, mobile refills, and more — all with Bitcoin and Lightning. Thousands of brands worldwide. No KYC, instant delivery.</p>
+								<div class="card-top">
+									<header>
+										<h2>Bitrefill</h2>
+									</header>
+									<a href="https://bitrefill.com/invite/vtsbeb6e" target="_blank" class="image fit"><img src="https://www.bitrefill.com/apple-touch-icon.png" alt="Bitrefill" /></a>
+									<p>Buy gift cards, mobile refills, and more — all with Bitcoin and Lightning. Thousands of brands worldwide. No KYC, instant delivery.</p>
+								</div>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">vtsbeb6e</span>
