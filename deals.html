@@ -12,6 +12,61 @@
 		<link rel="icon" type="image/png" href="images/logo-smile.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* 3-column posts grid for Deals page */
+			#main > .posts > * {
+				width: 33.333%;
+				padding: 3rem 2rem;
+			}
+			#main > .posts > article:nth-child(2n - 1) {
+				border-left-width: 2px;
+			}
+			#main > .posts > article:nth-child(3n + 1) {
+				border-left-width: 0;
+			}
+			#main > .posts > article:nth-child(-n + 2) {
+				border-top-width: 2px;
+			}
+			#main > .posts > article:nth-child(-n + 3) {
+				border-top-width: 0;
+			}
+			@media screen and (max-width: 980px) {
+				#main > .posts > * {
+					width: 50%;
+					padding: 2.5rem;
+				}
+				#main > .posts > article:nth-child(3n + 1) {
+					border-left-width: 2px;
+				}
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 0;
+				}
+				#main > .posts > article:nth-child(-n + 3) {
+					border-top-width: 2px;
+				}
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 0;
+				}
+			}
+			@media screen and (max-width: 736px) {
+				#main > .posts > * {
+					width: 100%;
+					padding: 2rem;
+				}
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 2px;
+				}
+				#main > .posts > article:nth-child(n) {
+					border-left-width: 0;
+				}
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 2px;
+				}
+				#main > .posts > article:nth-child(-n + 1) {
+					border-top-width: 0;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
