@@ -13,59 +13,54 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* 3-column posts grid for Deals page */
+			/* 3-column grid for Deals page — uses subgrid for perfect row alignment */
+			#main > .posts {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				text-align: center;
+				width: 100%;
+				padding: 0;
+			}
+
 			#main > .posts > * {
-				width: 33.333%;
+				width: auto;
 				padding: 3rem 2rem;
+				flex-shrink: 1;
+				flex-grow: 0;
 			}
-			#main > .posts > article:nth-child(2n - 1) {
+
+			#main > .posts > article {
+				display: grid;
+				grid-template-rows: subgrid;
+				grid-row: auto / span 7;
+				border-color: #eeeeee;
 				border-left-width: 2px;
+				border-style: solid;
+				border-top-width: 2px;
+				text-align: center;
 			}
+
+			#main > .posts > article > :last-child {
+				margin-bottom: 0;
+			}
+
 			#main > .posts > article:nth-child(3n + 1) {
 				border-left-width: 0;
 			}
-			#main > .posts > article:nth-child(-n + 2) {
-				border-top-width: 2px;
-			}
+
 			#main > .posts > article:nth-child(-n + 3) {
 				border-top-width: 0;
 			}
-			@media screen and (max-width: 980px) {
-				#main > .posts > * {
-					width: 50%;
-					padding: 2.5rem;
-				}
-				#main > .posts > article:nth-child(3n + 1) {
-					border-left-width: 2px;
-				}
-				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 0;
-				}
-				#main > .posts > article:nth-child(-n + 3) {
-					border-top-width: 2px;
-				}
-				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 0;
-				}
-			}
-			@media screen and (max-width: 736px) {
-				#main > .posts > * {
-					width: 100%;
-					padding: 2rem;
-				}
-				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 2px;
-				}
-				#main > .posts > article:nth-child(n) {
-					border-left-width: 0;
-				}
-				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 2px;
-				}
-				#main > .posts > article:nth-child(-n + 1) {
-					border-top-width: 0;
-				}
-			}
+
+			/* Explicit grid-row assignments so all cards align row-by-row */
+			#main > .posts > article > header           { grid-row: 1; }
+			#main > .posts > article > .image            { grid-row: 2; }
+			#main > .posts > article > .card-desc        { grid-row: 3; }
+			#main > .posts > article > .promo-badge       { grid-row: 4; place-self: center; }
+			#main > .posts > article > .card-benefit      { grid-row: 5; }
+			#main > .posts > article > .card-disclaimer   { grid-row: 6; }
+			#main > .posts > article > .actions           { grid-row: 7; align-self: end; }
+
 			/* Promo code badge */
 			.promo-badge {
 				display: inline-block;
@@ -73,7 +68,7 @@
 				border: 2px dashed #cccccc;
 				border-radius: 6px;
 				padding: 0.8rem 2rem;
-				margin: 0.5rem auto;
+				margin: 0;
 				text-align: center;
 				width: 200px;
 				max-width: 100%;
@@ -99,17 +94,47 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 			}
-			/* Card layout: flex column */
-			#main > .posts > article {
-				display: flex;
-				flex-direction: column;
+
+			@media screen and (max-width: 980px) {
+				#main > .posts {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				#main > .posts > * {
+					padding: 2.5rem;
+				}
+				#main > .posts > article:nth-child(3n + 1) {
+					border-left-width: 2px;
+				}
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 0;
+				}
+				#main > .posts > article:nth-child(-n + 3) {
+					border-top-width: 2px;
+				}
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 0;
+				}
 			}
-			#main > .posts > article .card-top {
-				flex: 1 0 auto;
-			}
-			/* Align buttons to bottom */
-			#main > .posts > article .actions {
-				margin-top: auto;
+
+			@media screen and (max-width: 736px) {
+				#main > .posts {
+					grid-template-columns: 1fr;
+				}
+				#main > .posts > * {
+					padding: 2rem;
+				}
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 2px;
+				}
+				#main > .posts > article:nth-child(n) {
+					border-left-width: 0;
+				}
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 2px;
+				}
+				#main > .posts > article:nth-child(-n + 1) {
+					border-top-width: 0;
+				}
 			}
 		</style>
 	</head>
@@ -161,20 +186,17 @@
 
 							<!-- Product 1 — nadanada -->
 							<article>
-								<div class="card-top">
-									<header>
-										<h2>nadanada</h2>
-									</header>
-									<a href="https://nadanada.me?ref=TUMA" target="_blank" class="image fit"><img src="https://nadanada.me/icon.svg" alt="nadanada" /></a>
-									<p>Privacy-first VPN, eSIM, and disposable phone numbers. No account, no email, no KYC — pay with Bitcoin, Lightning, or Monero. Trusted in 200+ countries, plans start at $0.50.</p>
-								</div>
+								<header>
+									<h2>nadanada</h2>
+								</header>
+								<a href="https://nadanada.me?ref=TUMA" target="_blank" class="image fit"><img src="https://nadanada.me/icon.svg" alt="nadanada" /></a>
+								<p class="card-desc">Privacy-first VPN, eSIM, and disposable phone numbers. No account, no email, no KYC — pay with Bitcoin, Lightning, or Monero. Trusted in 200+ countries, plans start at $0.50.</p>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">TUMA</span>
 								</div>
-								<p>
-									<em>Affiliate link — you support my work at no extra cost</em>
-								</p>
+								<p class="card-benefit"></p>
+								<p class="card-disclaimer"><em>Affiliate link — you support my work at no extra cost</em></p>
 								<ul class="actions special">
 									<li><a href="https://nadanada.me?ref=TUMA" target="_blank" class="button">Get it</a></li>
 								</ul>
@@ -182,21 +204,17 @@
 
 							<!-- Product 2 — Freedomia -->
 							<article>
-								<div class="card-top">
-									<header>
-										<h2>Freedomia</h2>
-									</header>
-									<a href="https://www.freedomia.io/a/tuma" target="_blank" class="image fit"><img src="https://www.freedomia.io/icons/icon-512x512.png" alt="Freedomia" /></a>
-									<p>No-KYC virtual Visa card funded with Bitcoin and Lightning. Top up via your personal Lightning Address and spend anywhere Visa is accepted, instantly. No account, no approval — just your keys, your card, your money.</p>
-								</div>
+								<header>
+									<h2>Freedomia</h2>
+								</header>
+								<a href="https://www.freedomia.io/a/tuma" target="_blank" class="image fit"><img src="https://www.freedomia.io/icons/icon-512x512.png" alt="Freedomia" /></a>
+								<p class="card-desc">No-KYC virtual Visa card funded with Bitcoin and Lightning. Top up via your personal Lightning Address and spend anywhere Visa is accepted, instantly. No account, no approval — just your keys, your card, your money.</p>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">TUMA</span>
 								</div>
-								<p>
-									<em>Sign up for the annual plan with my link and get <strong>2 months free</strong></em><br />
-									<em>Affiliate link — you support my work at no extra cost</em>
-								</p>
+								<p class="card-benefit"><em>Sign up for the annual plan with my link and get <strong>2 months free</strong></em></p>
+								<p class="card-disclaimer"><em>Affiliate link — you support my work at no extra cost</em></p>
 								<ul class="actions special">
 									<li><a href="https://www.freedomia.io/a/tuma" target="_blank" class="button">Get your card</a></li>
 								</ul>
@@ -204,21 +222,17 @@
 
 							<!-- Product 3 — PayPerQ -->
 							<article>
-								<div class="card-top">
-									<header>
-										<h2>PayPerQ</h2>
-									</header>
-									<a href="https://ppq.ai/invite/7e47dbed" target="_blank" class="image fit"><img src="https://ppq.ai/meta/apple-touch-icon.png" alt="PayPerQ" /></a>
-									<p>Pay-per-prompt access to hundreds of AI models — chat, image, video, and voice. No registration, no subscriptions. OpenAI-compatible API for agents and coding assistants. Pay anonymously with crypto, average ~2¢ per query.</p>
-								</div>
+								<header>
+									<h2>PayPerQ</h2>
+								</header>
+								<a href="https://ppq.ai/invite/7e47dbed" target="_blank" class="image fit"><img src="https://ppq.ai/meta/apple-touch-icon.png" alt="PayPerQ" /></a>
+								<p class="card-desc">Pay-per-prompt access to hundreds of AI models — chat, image, video, and voice. No registration, no subscriptions. OpenAI-compatible API for agents and coding assistants. Pay anonymously with crypto, average ~2¢ per query.</p>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">7e47dbed</span>
 								</div>
-								<p>
-									<em>Sign up with my link and get <strong>5% off open-source models</strong> on the API</em><br />
-									<em>Affiliate link — you support my work at no extra cost</em>
-								</p>
+								<p class="card-benefit"><em>Sign up with my link and get <strong>5% off open-source models</strong> on the API</em></p>
+								<p class="card-disclaimer"><em>Affiliate link — you support my work at no extra cost</em></p>
 								<ul class="actions special">
 									<li><a href="https://ppq.ai/invite/7e47dbed" target="_blank" class="button">Try PayPerQ</a></li>
 								</ul>
@@ -226,20 +240,17 @@
 
 							<!-- Product 4 — bitCashback -->
 							<article>
-								<div class="card-top">
-									<header>
-										<h2>bitCashback</h2>
-									</header>
-									<a href="https://bitcashback.net/?r=13669" target="_blank" class="image fit"><img src="https://bitcashback.net/favicon/apple-touch-icon.png" alt="bitCashback" /></a>
-									<p>Earn Bitcoin cashback on your everyday online shopping. Browse thousands of stores, get a percentage back on every purchase, and receive your rewards directly in Bitcoin — no points, no nonsense.</p>
-								</div>
+								<header>
+									<h2>bitCashback</h2>
+								</header>
+								<a href="https://bitcashback.net/?r=13669" target="_blank" class="image fit"><img src="https://bitcashback.net/favicon/apple-touch-icon.png" alt="bitCashback" /></a>
+								<p class="card-desc">Earn Bitcoin cashback on your everyday online shopping. Browse thousands of stores, get a percentage back on every purchase, and receive your rewards directly in Bitcoin — no points, no nonsense.</p>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">13669</span>
 								</div>
-								<p>
-									<em>Affiliate link — you support my work at no extra cost</em>
-								</p>
+								<p class="card-benefit"></p>
+								<p class="card-disclaimer"><em>Affiliate link — you support my work at no extra cost</em></p>
 								<ul class="actions special">
 									<li><a href="https://bitcashback.net/?r=13669" target="_blank" class="button">Start earning</a></li>
 								</ul>
@@ -247,21 +258,17 @@
 
 							<!-- Product 5 — Bitrefill -->
 							<article>
-								<div class="card-top">
-									<header>
-										<h2>Bitrefill</h2>
-									</header>
-									<a href="https://bitrefill.com/invite/vtsbeb6e" target="_blank" class="image fit"><img src="https://www.bitrefill.com/apple-touch-icon.png" alt="Bitrefill" /></a>
-									<p>Buy gift cards, mobile refills, and more — all with Bitcoin and Lightning. Thousands of brands worldwide. No KYC, instant delivery.</p>
-								</div>
+								<header>
+									<h2>Bitrefill</h2>
+								</header>
+								<a href="https://bitrefill.com/invite/vtsbeb6e" target="_blank" class="image fit"><img src="https://www.bitrefill.com/apple-touch-icon.png" alt="Bitrefill" /></a>
+								<p class="card-desc">Buy gift cards, mobile refills, and more — all with Bitcoin and Lightning. Thousands of brands worldwide. No KYC, instant delivery.</p>
 								<div class="promo-badge">
 									<span class="promo-label">Promo Code</span>
 									<span class="promo-code">vtsbeb6e</span>
 								</div>
-								<p>
-									<strong>You get $5</strong> when signing up and spending $200<br />
-									<em>Affiliate link — you support my work at no extra cost</em>
-								</p>
+								<p class="card-benefit"><strong>You get $5</strong> when signing up and spending $200</p>
+								<p class="card-disclaimer"><em>Affiliate link — you support my work at no extra cost</em></p>
 								<ul class="actions special">
 									<li><a href="https://bitrefill.com/invite/vtsbeb6e" target="_blank" class="button">Shop gift cards</a></li>
 								</ul>
